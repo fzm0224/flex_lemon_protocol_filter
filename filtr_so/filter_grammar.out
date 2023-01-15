@@ -1,0 +1,240 @@
+State 0:
+          sentence ::= * expr
+      (1) sentence ::= *
+          expr ::= * relation_test
+          expr ::= * logical_test
+          logical_test ::= * expr TEST_AND expr
+          logical_test ::= * expr TEST_OR expr
+          logical_test ::= * entity
+          entity ::= * FIELD
+          entity ::= * STRING
+          entity ::= * UNPARSED
+          entity ::= * INTEGER
+          relation_test ::= * entity rel_op2 entity
+          relation_test ::= * entity rel_op2 relation_test
+          expr ::= * LPAREN expr RPAREN
+
+                             $ reduce       1      sentence ::=
+                         FIELD shift-reduce 7      entity ::= FIELD
+                        STRING shift-reduce 8      entity ::= STRING
+                      UNPARSED shift-reduce 9      entity ::= UNPARSED
+                       INTEGER shift-reduce 10     entity ::= INTEGER
+                        LPAREN shift        1      
+                      sentence accept
+                          expr shift        8      
+                        entity shift        6      
+                 relation_test shift-reduce 2      expr ::= relation_test
+                  logical_test shift-reduce 3      expr ::= logical_test
+
+State 1:
+          expr ::= * relation_test
+          expr ::= * logical_test
+          logical_test ::= * expr TEST_AND expr
+          logical_test ::= * expr TEST_OR expr
+          logical_test ::= * entity
+          entity ::= * FIELD
+          entity ::= * STRING
+          entity ::= * UNPARSED
+          entity ::= * INTEGER
+          relation_test ::= * entity rel_op2 entity
+          relation_test ::= * entity rel_op2 relation_test
+          expr ::= * LPAREN expr RPAREN
+          expr ::= LPAREN * expr RPAREN
+
+                         FIELD shift-reduce 7      entity ::= FIELD
+                        STRING shift-reduce 8      entity ::= STRING
+                      UNPARSED shift-reduce 9      entity ::= UNPARSED
+                       INTEGER shift-reduce 10     entity ::= INTEGER
+                        LPAREN shift        1      
+                          expr shift        7      
+                        entity shift        6      
+                 relation_test shift-reduce 2      expr ::= relation_test
+                  logical_test shift-reduce 3      expr ::= logical_test
+
+State 2:
+          expr ::= * relation_test
+          expr ::= * logical_test
+          logical_test ::= * expr TEST_AND expr
+          logical_test ::= * expr TEST_OR expr
+          logical_test ::= expr TEST_OR * expr
+          logical_test ::= * entity
+          entity ::= * FIELD
+          entity ::= * STRING
+          entity ::= * UNPARSED
+          entity ::= * INTEGER
+          relation_test ::= * entity rel_op2 entity
+          relation_test ::= * entity rel_op2 relation_test
+          expr ::= * LPAREN expr RPAREN
+
+                         FIELD shift-reduce 7      entity ::= FIELD
+                        STRING shift-reduce 8      entity ::= STRING
+                      UNPARSED shift-reduce 9      entity ::= UNPARSED
+                       INTEGER shift-reduce 10     entity ::= INTEGER
+                        LPAREN shift        1      
+                          expr shift-reduce 5      logical_test ::= expr TEST_OR expr
+                        entity shift        6      
+                 relation_test shift-reduce 2      expr ::= relation_test
+                  logical_test shift-reduce 3      expr ::= logical_test
+
+State 3:
+          expr ::= * relation_test
+          expr ::= * logical_test
+          logical_test ::= * expr TEST_AND expr
+          logical_test ::= expr TEST_AND * expr
+          logical_test ::= * expr TEST_OR expr
+          logical_test ::= * entity
+          entity ::= * FIELD
+          entity ::= * STRING
+          entity ::= * UNPARSED
+          entity ::= * INTEGER
+          relation_test ::= * entity rel_op2 entity
+          relation_test ::= * entity rel_op2 relation_test
+          expr ::= * LPAREN expr RPAREN
+
+                         FIELD shift-reduce 7      entity ::= FIELD
+                        STRING shift-reduce 8      entity ::= STRING
+                      UNPARSED shift-reduce 9      entity ::= UNPARSED
+                       INTEGER shift-reduce 10     entity ::= INTEGER
+                        LPAREN shift        1      
+                          expr shift        9      
+                        entity shift        6      
+                 relation_test shift-reduce 2      expr ::= relation_test
+                  logical_test shift-reduce 3      expr ::= logical_test
+
+State 4:
+          entity ::= * FIELD
+          entity ::= * STRING
+          entity ::= * UNPARSED
+          entity ::= * INTEGER
+          relation_test ::= * entity rel_op2 entity
+          relation_test ::= entity rel_op2 * entity
+          relation_test ::= * entity rel_op2 relation_test
+          relation_test ::= entity rel_op2 * relation_test
+
+                         FIELD shift-reduce 7      entity ::= FIELD
+                        STRING shift-reduce 8      entity ::= STRING
+                      UNPARSED shift-reduce 9      entity ::= UNPARSED
+                       INTEGER shift-reduce 10     entity ::= INTEGER
+                        entity shift        5      
+                 relation_test shift-reduce 12     relation_test ::= entity rel_op2 relation_test
+
+State 5:
+          relation_test ::= entity * rel_op2 entity
+     (11) relation_test ::= entity rel_op2 entity *
+          relation_test ::= entity * rel_op2 relation_test
+          rel_op2 ::= * TEST_EQ
+          rel_op2 ::= * TEST_NE
+          rel_op2 ::= * TEST_GT
+          rel_op2 ::= * TEST_GE
+          rel_op2 ::= * TEST_LT
+          rel_op2 ::= * TEST_LE
+
+                       TEST_EQ shift-reduce 13     rel_op2 ::= TEST_EQ
+                       TEST_NE shift-reduce 14     rel_op2 ::= TEST_NE
+                       TEST_LT shift-reduce 17     rel_op2 ::= TEST_LT
+                       TEST_LE shift-reduce 18     rel_op2 ::= TEST_LE
+                       TEST_GT shift-reduce 15     rel_op2 ::= TEST_GT
+                       TEST_GE shift-reduce 16     rel_op2 ::= TEST_GE
+                       rel_op2 shift        4      
+                     {default} reduce       11     relation_test ::= entity rel_op2 entity
+
+State 6:
+      (6) logical_test ::= entity *
+          relation_test ::= entity * rel_op2 entity
+          relation_test ::= entity * rel_op2 relation_test
+          rel_op2 ::= * TEST_EQ
+          rel_op2 ::= * TEST_NE
+          rel_op2 ::= * TEST_GT
+          rel_op2 ::= * TEST_GE
+          rel_op2 ::= * TEST_LT
+          rel_op2 ::= * TEST_LE
+
+                       TEST_EQ shift-reduce 13     rel_op2 ::= TEST_EQ
+                       TEST_NE shift-reduce 14     rel_op2 ::= TEST_NE
+                       TEST_LT shift-reduce 17     rel_op2 ::= TEST_LT
+                       TEST_LE shift-reduce 18     rel_op2 ::= TEST_LE
+                       TEST_GT shift-reduce 15     rel_op2 ::= TEST_GT
+                       TEST_GE shift-reduce 16     rel_op2 ::= TEST_GE
+                       rel_op2 shift        4      
+                     {default} reduce       6      logical_test ::= entity
+
+State 7:
+          logical_test ::= expr * TEST_AND expr
+          logical_test ::= expr * TEST_OR expr
+          expr ::= LPAREN expr * RPAREN
+
+                      TEST_AND shift        3      
+                       TEST_OR shift        2      
+                        RPAREN shift-reduce 19     expr ::= LPAREN expr RPAREN
+
+State 8:
+      (0) sentence ::= expr *
+          logical_test ::= expr * TEST_AND expr
+          logical_test ::= expr * TEST_OR expr
+
+                             $ reduce       0      sentence ::= expr
+                      TEST_AND shift        3      
+                       TEST_OR shift        2      
+
+State 9:
+          logical_test ::= expr * TEST_AND expr
+      (4) logical_test ::= expr TEST_AND expr *
+          logical_test ::= expr * TEST_OR expr
+
+                       TEST_OR shift        2      
+                     {default} reduce       4      logical_test ::= expr TEST_AND expr
+
+----------------------------------------------------
+Symbols:
+The first-set of non-terminals is shown after the name.
+
+    0: $:
+    1: TEST_AND (precedence=1)
+    2: TEST_OR (precedence=2)
+    3: TEST_EQ (precedence=3)
+    4: TEST_NE (precedence=3)
+    5: TEST_LT (precedence=3)
+    6: TEST_LE (precedence=3)
+    7: TEST_GT (precedence=3)
+    8: TEST_GE (precedence=3)
+    9: FIELD
+   10: STRING
+   11: UNPARSED
+   12: INTEGER
+   13: LPAREN
+   14: RPAREN
+   15: sentence: <lambda> FIELD STRING UNPARSED INTEGER LPAREN
+   16: expr: FIELD STRING UNPARSED INTEGER LPAREN
+   17: entity: FIELD STRING UNPARSED INTEGER
+   18: relation_test: FIELD STRING UNPARSED INTEGER
+   19: logical_test: FIELD STRING UNPARSED INTEGER LPAREN
+   20: rel_op2: TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE
+   21: range:
+----------------------------------------------------
+Syntax-only Symbols:
+The following symbols never carry semantic content.
+
+$ TEST_AND TEST_OR TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE LPAREN
+RPAREN sentence range
+----------------------------------------------------
+Rules:
+   0: sentence ::= expr.
+   1: sentence ::=.
+   2: expr ::= relation_test.
+   3: expr ::= logical_test.
+   4: logical_test ::= expr TEST_AND expr. [TEST_AND precedence=1]
+   5: logical_test ::= expr TEST_OR expr. [TEST_OR precedence=2]
+   6: logical_test ::= entity.
+   7: entity ::= FIELD.
+   8: entity ::= STRING.
+   9: entity ::= UNPARSED.
+  10: entity ::= INTEGER.
+  11: relation_test ::= entity rel_op2 entity.
+  12: relation_test ::= entity rel_op2 relation_test.
+  13: rel_op2 ::= TEST_EQ. [TEST_EQ precedence=3]
+  14: rel_op2 ::= TEST_NE. [TEST_NE precedence=3]
+  15: rel_op2 ::= TEST_GT. [TEST_GT precedence=3]
+  16: rel_op2 ::= TEST_GE. [TEST_GE precedence=3]
+  17: rel_op2 ::= TEST_LT. [TEST_LT precedence=3]
+  18: rel_op2 ::= TEST_LE. [TEST_LE precedence=3]
+  19: expr ::= LPAREN expr RPAREN.
