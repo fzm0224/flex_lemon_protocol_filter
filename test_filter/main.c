@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#include "proto_list.h"
 #include "filter_modbus.h"
 #include "filter_mqtt.h"
 
@@ -39,6 +40,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    g_filter_fields = filter_fields;
 
     int ret = 0;
     char *expression = argv[1];

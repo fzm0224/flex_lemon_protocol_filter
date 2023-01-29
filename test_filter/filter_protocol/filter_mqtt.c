@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "proto_list.h"
 #include "filter_mqtt.h"
 
 
@@ -16,39 +17,39 @@ gboolean cmp_mqtt(stnode_t* keynode , stnode_t* valuenode, test_op_t op, istp_pr
     else
         svalue = valuenode->data;
 
-    if(strcmp(key, "mqtt.message_type") == 0) {
+    if(strcmp(key, FIELD_MQTT_MSG_TYPE) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->message_type);
-    } else if(strcmp(key, "mqtt.mqtt_payload_len") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_PAYLOAD_LEN) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->mqtt_payload_len);
-    } else if(strcmp(key, "mqtt.protocol_len") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_PROTO_LEN) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->protocol_len);
-    } else if(strcmp(key, "mqtt.version") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_VERSION) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->version);
-    } else if(strcmp(key, "mqtt.c_flag") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_CONNECT_FLAG) == 0) {
         return sttype_test_string(op, svalue, mqtt_data->c_flag);
-    } else if(strcmp(key, "mqtt.keepalive") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_KEEPALIVE) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->keepalive);
-    } else if(strcmp(key, "mqtt.client_id_len") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_CLIENTID_LEN) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->client_id_len);
-    } else if(strcmp(key, "mqtt.client_id") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_CLIENTID) == 0) {
         return sttype_test_string(op, svalue, mqtt_data->client_id);
-    } else if(strcmp(key, "mqtt.protocol") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_PROTO) == 0) {
         return sttype_test_string(op, svalue, mqtt_data->protocol);
-    } else if(strcmp(key, "mqtt.username_len") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_USERNAME_LEN) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->username_len);
-    } else if(strcmp(key, "mqtt.username") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_USERNAME) == 0) {
         return sttype_test_string(op, svalue, mqtt_data->username);
-    } else if(strcmp(key, "mqtt.passwd_len") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_PASSWD_LEN) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->passwd_len);
-    } else if(strcmp(key, "mqtt.passwd") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_PASSWD) == 0) {
         return sttype_test_string(op, svalue, mqtt_data->passwd);
-    } else if(strcmp(key, "mqtt.topic_len") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_TOPIC_LEN) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->topic_len);
-    } else if(strcmp(key, "mqtt.topic") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_TOPIC) == 0) {
         return sttype_test_string(op, svalue, mqtt_data->topic);
-    } else if(strcmp(key, "mqtt.topic_qos") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_TOPIC_QOS) == 0) {
         return sttype_test_integer(op, ivalue, mqtt_data->topic_qos);
-    } else if(strcmp(key, "mqtt.message") == 0) {
+    } else if(strcmp(key, FIELD_MQTT_MSG) == 0) {
         return sttype_test_string(op, svalue, mqtt_data->message);
     } else {
         return FALSE;
@@ -59,90 +60,90 @@ gboolean check_mqtt(stnode_t* node, istp_proto_mqtt_filter_data* mqtt_data)
 {
     char *field = node->data;
     if (field) {
-        if (0 == strcmp(field, "mqtt")) {
+        if (0 == strcmp(field, FIELD_MQTT)) {
             return TRUE;
         }
-        if (0 == strcmp(field, "mqtt.message_type")) {
+        if (0 == strcmp(field, FIELD_MQTT_MSG_TYPE)) {
             if (mqtt_data->message_type) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.mqtt_payload_len")) {
+        if (0 == strcmp(field, FIELD_MQTT_PAYLOAD_LEN)) {
             if (mqtt_data->mqtt_payload_len) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.protocol_len")) {
+        if (0 == strcmp(field, FIELD_MQTT_PROTO_LEN)) {
             if (mqtt_data->protocol_len) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.version")) {
+        if (0 == strcmp(field, FIELD_MQTT_VERSION)) {
             if (mqtt_data->version) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.c_flag")) {
+        if (0 == strcmp(field, FIELD_MQTT_CONNECT_FLAG)) {
             if (mqtt_data->c_flag) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.keepalive")) {
+        if (0 == strcmp(field, FIELD_MQTT_KEEPALIVE)) {
             if (mqtt_data->keepalive) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.client_id_len")) {
+        if (0 == strcmp(field, FIELD_MQTT_CLIENTID_LEN)) {
             if (mqtt_data->client_id_len) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.client_id")) {
+        if (0 == strcmp(field, FIELD_MQTT_CLIENTID)) {
             if (mqtt_data->client_id) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.protocol")) {
+        if (0 == strcmp(field, FIELD_MQTT_PROTO)) {
             if (mqtt_data->protocol) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.username_len")) {
+        if (0 == strcmp(field, FIELD_MQTT_USERNAME_LEN)) {
             if (mqtt_data->username_len) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.username")) {
+        if (0 == strcmp(field, FIELD_MQTT_USERNAME)) {
             if (mqtt_data->username) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.passwd_len")) {
+        if (0 == strcmp(field, FIELD_MQTT_PASSWD_LEN)) {
             if (mqtt_data->passwd_len) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.passwd")) {
+        if (0 == strcmp(field, FIELD_MQTT_PASSWD)) {
             if (mqtt_data->passwd) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.topic_len")) {
+        if (0 == strcmp(field, FIELD_MQTT_TOPIC_LEN)) {
             if (mqtt_data->topic_len) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.topic")) {
+        if (0 == strcmp(field, FIELD_MQTT_TOPIC)) {
             if (mqtt_data->topic) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.topic_qos")) {
+        if (0 == strcmp(field, FIELD_MQTT_TOPIC_QOS)) {
             if (mqtt_data->topic_qos) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "mqtt.message")) {
+        if (0 == strcmp(field, FIELD_MQTT_MSG)) {
             if (mqtt_data->message) {
                 return TRUE;
             }

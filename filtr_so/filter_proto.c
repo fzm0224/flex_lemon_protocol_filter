@@ -62,9 +62,9 @@ gboolean proto_explore(void)
 {
     int i = 0;
     for (i = 0; i < MAX_FIELD_NUM; i++) {
-        if (PROTO_VALUE_UNVALID == filter_fields[i].type)
+        if (PROTO_VALUE_UNVALID == g_filter_fields[i].type)
             break;
-        if (HT_ERROR == ht_insert(g_proto_name_map, (void *)filter_fields[i].field, (void *)&filter_fields[i].type)) {
+        if (HT_ERROR == ht_insert(g_proto_name_map, (void *)g_filter_fields[i].field, (void *)&g_filter_fields[i].type)) {
             printf("[Error]: protoExplore() error! i = %d\n", i);
             return FALSE;
         }

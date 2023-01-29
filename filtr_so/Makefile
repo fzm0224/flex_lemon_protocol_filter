@@ -3,11 +3,11 @@ CFLAGS := $(CFLAGS) -std=c99 -g
 
 all:
 	$(CC) ./tools/lemon.c -o ./tools/lemon
-# 使用lemon编译规则文件grammar.y生成grammar.h和grammar.c
+# 使用lemon编译规则文件filter_grammar.y生成filter_grammar.h和filter_grammar.c
 	./tools/lemon filter_grammar.y
-# 解决lemon生成的grammar.c中存在的_U_导致的编译错误
+# 解决lemon生成的filter_grammar.c中存在的_U_导致的编译错误
 	sed -i 's/\_U\_//' ./filter_grammar.c
-# 使用flex编译规则文件scanner.l生成scanner.h和scanner.c
+# 使用flex编译规则文件filter_scanner.l生成filter_scanner.h和filter_scanner.c
 	flex --outfile=filter_scanner.c --header-file=filter_scanner.h filter_scanner.l
 	$(CC) -shared -fPIC *.c -I./ -o libfilter.so
 

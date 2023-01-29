@@ -5,6 +5,24 @@
 #define TRUE    1
 #define FALSE   0
 
+#define MAX_FIELD_NUM 10240
+#define MAX_FIELD_LEN 128
+
+
+typedef enum {
+    PROTO_VALUE_UNVALID,
+	PROTO_VALUE_STRING,
+	PROTO_VALUE_INTEGER,
+	PROTO_NO_VALUE
+} proto_value_t;
+
+typedef struct _filter_field_t {
+	char field[MAX_FIELD_LEN];
+	proto_value_t type;
+} filter_field_t;
+
+filter_field_t *g_filter_fields;
+
 
 typedef signed char     gint8;
 typedef unsigned char   guint8;
@@ -98,9 +116,11 @@ gpointer stnode_data(stnode_t *node);
 gboolean sttype_test_string(test_op_t op, char* val1, char* val2);
 gboolean sttype_test_integer(test_op_t op, int val1, int val2);
 
+
 // filter API
 int filter_init(char *expression, dfwork_t **dfw);
 int filter_start(dfwork_t *dfw, void *data, pfunc_t pfunc);
 void filter_fini(dfwork_t *dfw);
+
 
 #endif

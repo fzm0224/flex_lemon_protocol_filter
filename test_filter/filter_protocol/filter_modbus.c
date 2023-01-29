@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "proto_list.h"
 #include "filter_modbus.h"
 
 gboolean cmp_modbus(stnode_t* keynode, stnode_t* valuenode, test_op_t op, istp_proto_modbus_filter_data* modbus_data)
@@ -15,11 +16,11 @@ gboolean cmp_modbus(stnode_t* keynode, stnode_t* valuenode, test_op_t op, istp_p
     else
         svalue = valuenode->data;
 
-    if(strcmp(key, "modbus.function_code") == 0) {
+    if(strcmp(key, FIELD_MODBUS_FUNC) == 0) {
         return sttype_test_integer(op, ivalue, modbus_data->function_code);
-    } else if(strcmp(key, "modbus.address") == 0) {
+    } else if(strcmp(key, FIELD_MODBUS_ADDR) == 0) {
         return sttype_test_integer(op, ivalue, modbus_data->address);
-    } else if(strcmp(key, "modbus.address_length") == 0) {
+    } else if(strcmp(key, FIELD_MODBUS_ADDR_LEN) == 0) {
         return sttype_test_integer(op, ivalue, modbus_data->address_length);
     } else {
         return FALSE;
@@ -30,20 +31,20 @@ gboolean checkModbus(stnode_t* node, istp_proto_modbus_filter_data* modbus_data)
 {
     char *field = node->data;
     if (field) {
-        if (0 == strcmp(field, "modbus")) {
+        if (0 == strcmp(field, FIELD_MODBUS)) {
             return TRUE;
         }
-        if (0 == strcmp(field, "modbus.function_code")) {
+        if (0 == strcmp(field, FIELD_MODBUS_FUNC)) {
             if (modbus_data->function_code) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "modbus.address")) {
+        if (0 == strcmp(field, FIELD_MODBUS_ADDR)) {
             if (modbus_data->address) {
                 return TRUE;
             }
         }
-        if (0 == strcmp(field, "modbus.address_length")) {
+        if (0 == strcmp(field, FIELD_MODBUS_ADDR_LEN)) {
             if (modbus_data->address_length) {
                 return TRUE;
             }

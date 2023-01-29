@@ -1,231 +1,231 @@
-==908313== Memcheck, a memory error detector
-==908313== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==908313== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==908313== Command: ./filter mqtt.message_type\ \>=\ 1\ &&\ mqtt.username\ ==\ "liyongfeng"\ &&\ mqtt.passwd\ ==\ "123456"
-==908313== Parent PID: 878178
-==908313== 
-==908313== Invalid write of size 8
-==908313==    at 0x485CF33: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84148 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485CF3B: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84148 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid write of size 8
-==908313==    at 0x485CF62: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84150 is 8 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485CF6A: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84150 is 8 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485CF86: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84148 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485CFA5: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84150 is 8 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485C55E: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84148 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485D25E: _ht_rehash (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D1FA: _ht_resize (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D0E3: _ht_adjust_capacity (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C526: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84ae8 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485C6B6: ht_contains (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D46D: proto_exist (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485DD23: df_lex (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A11E: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313==  Address 0x4f84828 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485C7A7: ht_lookup (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D56B: proto_type_getbyname (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485FF0F: check_proto_value (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485FFD5: check_relation (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x48600FB: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860162: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x48600C0: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860162: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x48600C0: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860162: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860193: dfw_semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A305: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==  Address 0x4f84828 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485C7C6: ht_lookup (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D56B: proto_type_getbyname (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485FF0F: check_proto_value (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485FFD5: check_relation (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x48600FB: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860162: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x48600C0: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860162: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x48600C0: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860162: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x4860193: dfw_semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A305: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==  Address 0x4f84830 is 8 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485D08F: _ht_destroy_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C436: ht_destroy (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D6BF: proto_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A02B: filter_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x10A04C: main (main.c:87)
-==908313==  Address 0x4f84ae8 is 0 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== Invalid read of size 8
-==908313==    at 0x485D09F: _ht_destroy_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C436: ht_destroy (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D6BF: proto_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A02B: filter_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x10A04C: main (main.c:87)
-==908313==  Address 0x4f84af0 is 8 bytes after a block of size 8 alloc'd
-==908313==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==908313==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485D652: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
-==908313==    by 0x109F0F: main (main.c:47)
-==908313== 
-==908313== 
-==908313== HEAP SUMMARY:
-==908313==     in use at exit: 0 bytes in 0 blocks
-==908313==   total heap usage: 113 allocs, 113 frees, 7,406 bytes allocated
-==908313== 
-==908313== All heap blocks were freed -- no leaks are possible
-==908313== 
-==908313== For lists of detected and suppressed errors, rerun with: -s
-==908313== ERROR SUMMARY: 229 errors from 13 contexts (suppressed: 0 from 0)
+==3987885== Memcheck, a memory error detector
+==3987885== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3987885== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==3987885== Command: ./filter mqtt.message_type\ \>=\ 1\ &&\ mqtt.username\ ==\ "liyongfeng"\ &&\ mqtt.passwd\ ==\ "123456"
+==3987885== Parent PID: 3970187
+==3987885== 
+==3987885== Invalid write of size 8
+==3987885==    at 0x485CF33: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c148 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485CF3B: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c148 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid write of size 8
+==3987885==    at 0x485CF62: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c150 is 8 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485CF6A: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c150 is 8 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485CF86: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c148 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485CFA5: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c150 is 8 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485C55E: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c148 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485D25E: _ht_rehash (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D1FA: _ht_resize (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D0E3: _ht_adjust_capacity (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C526: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5cae8 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485C6B6: ht_contains (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D46D: proto_exist (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485DD2D: df_lex (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A11E: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885==  Address 0x4a5c828 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485C7A7: ht_lookup (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D56B: proto_type_getbyname (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485FF19: check_proto_value (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485FFDF: check_relation (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x4860105: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486016C: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x48600CA: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486016C: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x48600CA: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486016C: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486019D: dfw_semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A305: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==  Address 0x4a5c828 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485C7C6: ht_lookup (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D56B: proto_type_getbyname (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485FF19: check_proto_value (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485FFDF: check_relation (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x4860105: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486016C: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x48600CA: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486016C: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x48600CA: check_test (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486016C: semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x486019D: dfw_semcheck (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A305: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==  Address 0x4a5c830 is 8 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485D08F: _ht_destroy_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C436: ht_destroy (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D6C9: proto_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A02B: filter_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x10A05A: main (main.c:89)
+==3987885==  Address 0x4a5d3e8 is 0 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== Invalid read of size 8
+==3987885==    at 0x485D09F: _ht_destroy_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C436: ht_destroy (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D6C9: proto_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A02B: filter_fini (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x10A05A: main (main.c:89)
+==3987885==  Address 0x4a5d3f0 is 8 bytes after a block of size 8 alloc'd
+==3987885==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3987885==    by 0x485CF06: _ht_create_node (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D023: _ht_push_front (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485C5C8: ht_insert (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485D65C: proto_explore (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x485A076: filter_init (in /root/DFilter/flex_lemon_protocol_filter/test_filter/libfilter.so)
+==3987885==    by 0x109F1D: main (main.c:49)
+==3987885== 
+==3987885== 
+==3987885== HEAP SUMMARY:
+==3987885==     in use at exit: 0 bytes in 0 blocks
+==3987885==   total heap usage: 113 allocs, 113 frees, 7,406 bytes allocated
+==3987885== 
+==3987885== All heap blocks were freed -- no leaks are possible
+==3987885== 
+==3987885== For lists of detected and suppressed errors, rerun with: -s
+==3987885== ERROR SUMMARY: 226 errors from 13 contexts (suppressed: 0 from 0)
