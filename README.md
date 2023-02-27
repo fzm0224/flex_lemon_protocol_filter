@@ -5,6 +5,7 @@
 ./filter '(staff.name == "Wangwu" && staff.sex == 0 && staff.age < 30) || staff.name == "Zhongli"' '{"Country":"China", "City":"Beijing", "Infos":[{"Name":"Zhangsan", "Sex":1, "Age":25}, {"Name":"Lisi", "Sex":1, "Age":26}, {"Name":"Wangwu", "Sex":0, "Age":24}, {"Name":"Zhaoliu", "Sex":0, "Age":28}]}' 'staff'
 
 
+
 ===== 目录文件 =====
 
 filter_so目录：
