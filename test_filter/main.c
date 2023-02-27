@@ -3,47 +3,32 @@
 #include "proto_list.h"
 #include "filter_modbus.h"
 #include "filter_mqtt.h"
+#include "filter_staff.h"
 
 
-// test modbus
-istp_proto_modbus_filter_data modbus_filter_data = { 
-    .function_code = 5,
-    .address = 1117,
-    .address_length = 1 
-};
-
-// test mqtt
-istp_proto_mqtt_filter_data mqtt_filter_data = { 
-    .message_type = 1,
-    .mqtt_payload_len = 57, 
-    .protocol_len = 4,
-    .version = 4,
-    .c_flag = "0xc2",
-    .keepalive = 60, 
-    .client_id_len = 23, 
-    .client_id = "mosq-rpGQ0xhBgQl6rA2hbZ",
-    .protocol = "MQTT",
-    .username_len = 10, 
-    .username = "liyongfeng",
-    .passwd_len = 8,
-    .passwd = "123456",
-    .topic_len = -1, 
-    .topic = NULL,
-    .topic_qos = -1, 
-    .message = NULL
-};
+void help() {
+    printf("Usage:\n");
+    printf("\t./test_filter [expression] [json] [protoname]\n");
+    printf("options:\n");
+    printf("\t[expression]: filter expression.\n");
+    printf("\t[json]: json string.\n");
+    printf("\t[protoname]: protocol name. eg: mqtt\n");
+}
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2) {
-        printf("[Error]: argc != 2\n");
+    if (argc != 4) {
+        printf("argc error!");
+        help();
         return -1;
     }
 
     g_filter_fields = filter_fields;
-
+    
     int ret = 0;
     char *expression = argv[1];
+    char *json_data = argv[2];
+    char *proto_name = argv[3];
     dfwork_t *dfw = NULL;
 
     ret = filter_init(expression, &dfw);
@@ -52,40 +37,76 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-#if 0
-    ret = filter_start(dfw, &modbus_filter_data, (pfunc_t)do_filter_modbus);
-    if (-1 == ret) {
-        printf("Modbus Filter Fail!!!!!!\n");
-        filter_fini(dfw);
-        return -1;
-    } else {
-        printf("Modbus Filter OK!!!!!!\n");
-        printf("========== Modbus Data ==========\n");
-        printf("function_code = %d, address = %d, address_length = %d\n", 
-                modbus_filter_data.function_code, modbus_filter_data.address, modbus_filter_data.address_length);
+    printf("============== Result ==============\n");
+    if (0 == strcmp(proto_name, FIELD_MODBUS)) {
+        istp_proto_modbus_filter_data modbus_filter_data;
+
+        memset(&modbus_filter_data, 0, sizeof(modbus_filter_data));
+        ret = json_to_modbus(json_data, &modbus_filter_data);
+        if (-1 == ret) {
+            filter_fini(dfw);
+            return -1;
+        }
+        ret = filter_start(dfw, &modbus_filter_data, (pfunc_t)do_filter_modbus);
+        if (-1 == ret) {
+            printf("Modbus Filter Fail!!!!!!\n");
+            filter_fini(dfw);
+            return -1;
+        } else {
+            printf("===== Modbus Filter OK! =====\n");
+        }
     }
-#else
-    ret = filter_start(dfw, &mqtt_filter_data, (pfunc_t)doFilterMqtt);
-    if (-1 == ret) {
-        printf("MQTT Filter Fail!\n");
-        filter_fini(dfw);
-        return -1;
-    } else {
-        printf("MQTT Filter OK!\n");
-        printf("========== MQTT Data ==========\n");
-        printf("message_type = %d\nmqtt_payload_len = %d\nprotocol_len = %d\n"
-                "version = %d\nc_flag = %s\nkeepalive = %d\nclient_id_len = %d\n"
-                "client_id = %s\nprotocol = %s\nusername_len = %d\nusername = %s\n"
-                "passwd_len = %d\npasswd = %s\ntopic_len = %d\ntopic = %s\n"
-                "topic_qos = %d\nmessage = %s\n", 
-	            mqtt_filter_data.message_type, mqtt_filter_data.mqtt_payload_len, mqtt_filter_data.protocol_len, 
-                mqtt_filter_data.version, mqtt_filter_data.c_flag, mqtt_filter_data.keepalive, mqtt_filter_data.client_id_len, 
-                mqtt_filter_data.client_id, mqtt_filter_data.protocol, mqtt_filter_data.username_len, mqtt_filter_data.username, 
-                mqtt_filter_data.passwd_len, mqtt_filter_data.passwd, mqtt_filter_data.topic_len, mqtt_filter_data.topic, 
-                mqtt_filter_data.topic_qos, mqtt_filter_data.message);
+    else if (0 == strcmp(proto_name, FIELD_MQTT)) {
+        istp_proto_mqtt_filter_data mqtt_filter_data;
+
+        memset(&mqtt_filter_data, 0, sizeof(mqtt_filter_data));
+        ret = json_to_mqtt(json_data, &mqtt_filter_data);
+        if (-1 == ret) {
+            mqtt_data_free(&mqtt_filter_data);
+            filter_fini(dfw);
+            return -1;
+        }
+        ret = filter_start(dfw, &mqtt_filter_data, (pfunc_t)do_filter_mqtt);
+        if (-1 == ret) {
+            printf("MQTT Filter Fail!!!!!!\n");
+            mqtt_data_free(&mqtt_filter_data);
+            filter_fini(dfw);
+            return -1;
+        } else {
+            printf("===== MQTT Filter OK! =====\n");
+            mqtt_data_free(&mqtt_filter_data);
+        }
     }
-#endif
-    
+    else if (0 == strcmp(proto_name, FIELD_STAFF)) {
+        istp_proto_staff_filter_data staff_filter_data[1024];
+        int staff_num = -1, i = 0, filter_ok_flag = 0;
+
+        memset(staff_filter_data, 0, sizeof(staff_filter_data));
+        ret = json_to_staff(json_data, staff_filter_data, &staff_num, 1024);
+        if (-1 == ret) {
+            filter_fini(dfw);
+            return -1;
+        }
+        if (-2 == ret) {
+            printf("staff array item too many, max %d!\n", 1024);
+            filter_fini(dfw);
+            return -1;
+        }
+        for (i = 0; i <= staff_num; i++) {
+            ret = filter_start(dfw, &staff_filter_data[i], (pfunc_t)do_filter_staff);
+            if (0 == ret) {
+                printf("===== STAFF Filter OK! =====\n");
+                filter_ok_flag = 1;
+                break;
+            }
+        }
+        if (0 == filter_ok_flag) {
+            printf("STAFF Filter Fail!!!!!!\n");
+            filter_fini(dfw);
+            return -1;
+        }
+    }
+
     filter_fini(dfw);
 
     return 0;

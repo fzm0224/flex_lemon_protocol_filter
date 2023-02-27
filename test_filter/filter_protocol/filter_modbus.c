@@ -27,7 +27,29 @@ gboolean cmp_modbus(stnode_t* keynode, stnode_t* valuenode, test_op_t op, istp_p
     }
 }
 
-gboolean checkModbus(stnode_t* node, istp_proto_modbus_filter_data* modbus_data)
+gboolean check_not_modbus(stnode_t* node)
+{
+    int i = 0;
+    char *field = node->data;
+    if (field) {
+        if (0 != strcmp(field, FIELD_MODBUS)) {
+            for (i = 0; i < MAX_FIELD_NUM; i++) {
+                if (0 == strcmp(FIELD_MODBUS, filter_protos[i])) {
+                    continue;
+                }
+                if (0 == strcmp(FIELD_NULL, filter_protos[i])) {
+                    break;
+                }
+                if (0 == strcmp(field, filter_protos[i])) {
+                    return TRUE;
+                }
+            }
+        }
+    }
+    return FALSE;
+}
+
+gboolean check_modbus(stnode_t* node, istp_proto_modbus_filter_data* modbus_data)
 {
     char *field = node->data;
     if (field) {
@@ -90,8 +112,16 @@ gboolean modbus_mode(stnode_t* node, istp_proto_modbus_filter_data* modbus_data)
                     } 
                 }
                 break;
+            case TEST_OP_NOT:
+                if (((stnode_t*)(test->val1))->type == STTYPE_TEST) {
+                    test_t *test1 = (test_t*)stnode_data((stnode_t*)(test->val1));
+                    if (check_not_modbus(test1->val1) == TRUE) {
+                        ret = TRUE;
+                    }
+                }
+                break;
             case TEST_OP_EXISTS:
-                if (checkModbus(test->val1, modbus_data) == TRUE) {
+                if (check_modbus(test->val1, modbus_data) == TRUE) {
                     ret = TRUE;
                 }
                 break;
@@ -113,4 +143,37 @@ gboolean do_filter_modbus(dfwork_t* dfw, istp_proto_modbus_filter_data* modbus_d
     ret = modbus_mode(dfw->st_root, modbus_data);
     
     return ret;
+}
+
+int json_to_modbus(char *json_data, istp_proto_modbus_filter_data *modbus_data) 
+{
+    cJSON *root = NULL;
+    cJSON *item = NULL;
+
+    root = cJSON_Parse(json_data);
+    if (!root) {
+        printf("cJSON_Parse error!");
+        return -1;
+    }
+    item = cJSON_GetObjectItem(root, "function_code");
+    if (item) {
+        modbus_data->function_code = item->valueint;
+        modbus_data->flag.have_function_code = 1;
+    }
+
+    item = cJSON_GetObjectItem(root, "address");
+    if (item) {
+        modbus_data->address = item->valueint;
+        modbus_data->flag.have_address = 1;
+    }
+
+    item = cJSON_GetObjectItem(root, "address_length");
+    if (item) {
+        modbus_data->address_length = item->valueint;
+        modbus_data->flag.have_address_length = 1;
+    }
+
+    cJSON_Delete(root);
+
+    return 0;
 }

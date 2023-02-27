@@ -24,9 +24,9 @@ void dfilter_fail(dfwork_t *dfw, const char *format, ...)
 	if (dfw->error_message != NULL)
 		return;
 
-	va_start(args, format);
-	vsprintf(dfw->error_message, format, args);
-	va_end(args);
+	// va_start(args, format);
+	// vsprintf(dfw->error_message, format, args);
+	// va_end(args);
 }
 
 static dfwork_t* dfwork_new(void)

@@ -94,8 +94,9 @@ char* operandname(test_op_t op)
 		case TEST_OP_UNINITIALIZED:
 			break;
 		case TEST_OP_EXISTS:
-		case TEST_OP_NOT:
 			return NULL;
+		case TEST_OP_NOT:
+			return "!";
 		case TEST_OP_AND:
 			return "&&";
 		case TEST_OP_OR:

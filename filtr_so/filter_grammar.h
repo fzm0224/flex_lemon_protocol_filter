@@ -6,9 +6,10 @@
 #define TOKEN_TEST_LE                          6
 #define TOKEN_TEST_GT                          7
 #define TOKEN_TEST_GE                          8
-#define TOKEN_FIELD                            9
-#define TOKEN_STRING                          10
-#define TOKEN_UNPARSED                        11
-#define TOKEN_INTEGER                         12
-#define TOKEN_LPAREN                          13
-#define TOKEN_RPAREN                          14
+#define TOKEN_TEST_NOT                         9
+#define TOKEN_FIELD                           10
+#define TOKEN_STRING                          11
+#define TOKEN_UNPARSED                        12
+#define TOKEN_INTEGER                         13
+#define TOKEN_LPAREN                          14
+#define TOKEN_RPAREN                          15

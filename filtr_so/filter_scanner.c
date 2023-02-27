@@ -549,8 +549,8 @@ static void yynoreturn yy_fatal_error ( const char* msg , yyscan_t yyscanner );
 	yyg->yy_hold_char = *yy_cp; \
 	*yy_cp = '\0'; \
 	yyg->yy_c_buf_p = yy_cp;
-#define YY_NUM_RULES 23
-#define YY_END_OF_BUFFER 24
+#define YY_NUM_RULES 24
+#define YY_END_OF_BUFFER 25
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -560,12 +560,12 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[54] =
     {   0,
-        0,    0,    0,    0,    0,    0,    0,    0,   24,   22,
-        1,    1,   22,   12,   22,    2,    3,   21,   21,   22,
-       19,   19,    8,   22,    6,   22,   23,   17,   13,   23,
-        1,    5,   10,   21,   21,    0,   20,   19,   21,    9,
-        4,    7,   11,   17,   16,   14,   16,   18,   14,   15,
-       14,   15,    0
+        0,    0,    0,    0,    0,    0,    0,    0,   25,   23,
+        1,    1,   10,   13,   23,    2,    3,   22,   22,   23,
+       20,   20,    8,   23,    6,   23,   24,   18,   14,   24,
+        1,    5,   11,   22,   22,    0,   21,   20,   22,    9,
+        4,    7,   12,   18,   17,   15,   17,   19,   15,   16,
+       15,   16,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -1140,16 +1140,21 @@ return simple(TOKEN_TEST_LE);
 case 10:
 YY_RULE_SETUP
 #line 141 "filter_scanner.l"
-return simple(TOKEN_TEST_AND);
+return simple(TOKEN_TEST_NOT);
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 142 "filter_scanner.l"
-return simple(TOKEN_TEST_OR);
+return simple(TOKEN_TEST_AND);
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 145 "filter_scanner.l"
+#line 143 "filter_scanner.l"
+return simple(TOKEN_TEST_OR);
+	YY_BREAK
+case 13:
+YY_RULE_SETUP
+#line 146 "filter_scanner.l"
 {
 	/* start quote */
 	/* The example of how to scan for strings was taken from
@@ -1172,7 +1177,7 @@ YY_RULE_SETUP
 }
 	YY_BREAK
 case YY_STATE_EOF(DQUOTE):
-#line 166 "filter_scanner.l"
+#line 167 "filter_scanner.l"
 {
 	/* unterminated string */
 	/* The example of how to handle unclosed strings was taken from
@@ -1184,9 +1189,9 @@ case YY_STATE_EOF(DQUOTE):
 	return SCAN_FAILED;
 }
 	YY_BREAK
-case 13:
+case 14:
 YY_RULE_SETUP
-#line 177 "filter_scanner.l"
+#line 178 "filter_scanner.l"
 {
 	/* end quote */
 	int token;
@@ -1197,9 +1202,9 @@ YY_RULE_SETUP
 	return token;
 }
 	YY_BREAK
-case 14:
+case 15:
 YY_RULE_SETUP
-#line 187 "filter_scanner.l"
+#line 188 "filter_scanner.l"
 {
 	/* octal sequence */
 	unsigned long result;
@@ -1213,9 +1218,9 @@ YY_RULE_SETUP
 	g_string_append_c(yyextra->quoted_string, (gchar) result);
 }
 	YY_BREAK
-case 15:
+case 16:
 YY_RULE_SETUP
-#line 200 "filter_scanner.l"
+#line 201 "filter_scanner.l"
 {
 	/* hex sequence */
 	unsigned long result;
@@ -1223,48 +1228,48 @@ YY_RULE_SETUP
 	g_string_append_c(yyextra->quoted_string, (gchar) result);
 }
 	YY_BREAK
-case 16:
+case 17:
 YY_RULE_SETUP
-#line 208 "filter_scanner.l"
+#line 209 "filter_scanner.l"
 {
 	/* escaped character */
 	g_string_append_c(yyextra->quoted_string, yytext[1]);
 }
 	YY_BREAK
-case 17:
-/* rule 17 can match eol */
+case 18:
+/* rule 18 can match eol */
 YY_RULE_SETUP
-#line 213 "filter_scanner.l"
+#line 214 "filter_scanner.l"
 {
 	/* non-escaped string */
 	g_string_append(yyextra->quoted_string, yytext);
 }
 	YY_BREAK
-case 18:
-YY_RULE_SETUP
-#line 218 "filter_scanner.l"
-{
-    return set_lval_int(yyextra->dfw, TOKEN_INTEGER, yytext);
-}
-	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 222 "filter_scanner.l"
+#line 219 "filter_scanner.l"
 {
     return set_lval_int(yyextra->dfw, TOKEN_INTEGER, yytext);
 }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 226 "filter_scanner.l"
+#line 223 "filter_scanner.l"
+{
+    return set_lval_int(yyextra->dfw, TOKEN_INTEGER, yytext);
+}
+	YY_BREAK
+case 21:
+YY_RULE_SETUP
+#line 227 "filter_scanner.l"
 {
         /* CIDR */
         return set_lval(TOKEN_UNPARSED, yytext);
 }
 	YY_BREAK
-case 21:
+case 22:
 YY_RULE_SETUP
-#line 231 "filter_scanner.l"
+#line 232 "filter_scanner.l"
 {
     gboolean exist = FALSE;
     exist = proto_exist(yytext);
@@ -1275,20 +1280,20 @@ YY_RULE_SETUP
     }
 }
 	YY_BREAK
-case 22:
+case 23:
 YY_RULE_SETUP
-#line 241 "filter_scanner.l"
+#line 242 "filter_scanner.l"
 {
 	/* Default */
 	return set_lval(TOKEN_UNPARSED, yytext);
 }
 	YY_BREAK
-case 23:
+case 24:
 YY_RULE_SETUP
-#line 247 "filter_scanner.l"
+#line 248 "filter_scanner.l"
 ECHO;
 	YY_BREAK
-#line 1292 "filter_scanner.c"
+#line 1297 "filter_scanner.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(RANGE_INT):
 case YY_STATE_EOF(RANGE_PUNCT):
@@ -2393,7 +2398,7 @@ static int yy_flex_strlen (const char * s , yyscan_t yyscanner)
 
 #define YYTABLES_NAME "yytables"
 
-#line 247 "filter_scanner.l"
+#line 248 "filter_scanner.l"
 
 
 static int
@@ -2408,6 +2413,7 @@ simple(int token)
 		case TOKEN_TEST_GE:
 		case TOKEN_TEST_LT:
 		case TOKEN_TEST_LE:
+		case TOKEN_TEST_NOT:
 		case TOKEN_TEST_AND:
 		case TOKEN_TEST_OR:
 			break;

@@ -138,6 +138,7 @@ static void mark_lval_deprecated(const char *s);
 ">="			return simple(TOKEN_TEST_GE);
 "<"				return simple(TOKEN_TEST_LT);
 "<="			return simple(TOKEN_TEST_LE);
+"!"				return simple(TOKEN_TEST_NOT);
 "&&"			return simple(TOKEN_TEST_AND);
 "||"			return simple(TOKEN_TEST_OR);
 
@@ -258,6 +259,7 @@ simple(int token)
 		case TOKEN_TEST_GE:
 		case TOKEN_TEST_LT:
 		case TOKEN_TEST_LE:
+		case TOKEN_TEST_NOT:
 		case TOKEN_TEST_AND:
 		case TOKEN_TEST_OR:
 			break;

@@ -107,6 +107,7 @@ shifting 3 more symbols. */
 %left TEST_AND.
 %left TEST_OR.
 %nonassoc TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE .
+%right TEST_NOT.
 
 /* Top-level targets */
 sentence ::= expr(X).		{ dfw->st_root = X; }
@@ -127,6 +128,12 @@ logical_test(T) ::= expr(E) TEST_OR expr(F).
 {
 	T = stnode_new(STTYPE_TEST, NULL);
 	sttype_test_set2(T, TEST_OP_OR, E, F);
+}
+
+logical_test(T) ::= TEST_NOT expr(E).
+{
+	T = stnode_new(STTYPE_TEST, NULL);
+	sttype_test_set1(T, TEST_OP_NOT, E);
 }
 
 logical_test(T) ::= entity(E).

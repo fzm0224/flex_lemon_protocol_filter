@@ -93,6 +93,9 @@ gboolean check_test(dfwork_t *dfw, stnode_t *st_node)
         case TEST_OP_LE:
             ret = check_relation(dfw, st_op, st_node, st_arg1, st_arg2);
             break;
+        case TEST_OP_NOT:
+            ret = semcheck(dfw, st_arg1);
+            break;
         case TEST_OP_EXISTS:
             ret = TRUE;
             break;
