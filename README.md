@@ -1,5 +1,5 @@
 # flex_lemon_protocol_filter
-基于flex和lemon实现的一个过滤器库（借鉴Wireshark），过滤表达式支持!，>，&lt;，==，>=，&lt;=，()，||，&amp;&amp;等。根据需求，可以实现对任意json串中某些字段的过滤。
+基于flex和lemon实现的一个过滤器库（借鉴Wireshark），过滤表达式支持>，&lt;，==，>=，&lt;=，()，||，&amp;&amp;，! 等。根据需求，可以实现对任意json串中某些字段的过滤。
 
 
 
