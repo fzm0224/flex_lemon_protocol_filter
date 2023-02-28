@@ -13,6 +13,7 @@ MQTT测试：
 ./filter 'mqtt' '{"message_type":1,"message_flag":0,"mqtt_payload_len":57,"protocol_len":4,"protocol":"MQTT","version":4,"c_flag":"0xc2","keepalive":60,"client_id_len":23,"client_id":"mosq-3iO2bSuBNshd5wDIVQ","username_len":10,"username":"liyongfeng","passwd_len":8,"passwd":"123456"}' "mqtt"
 ./filter '!mqtt' '{"message_type":1,"message_flag":0,"mqtt_payload_len":57,"protocol_len":4,"protocol":"MQTT","version":4,"c_flag":"0xc2","keepalive":60,"client_id_len":23,"client_id":"mosq-3iO2bSuBNshd5wDIVQ","username_len":10,"username":"liyongfeng","passwd_len":8,"passwd":"123456"}' "mqtt"
 ./filter '!modbus && mqtt.message_type >= 1 && mqtt.username == "liyongfeng" && mqtt.passwd == "123456"' '{"message_type":1,"message_flag":0,"mqtt_payload_len":57,"protocol_len":4,"protocol":"MQTT","version":4,"c_flag":"0xc2","keepalive":60,"client_id_len":23,"client_id":"mosq-3iO2bSuBNshd5wDIVQ","username_len":10,"username":"liyongfeng","passwd_len":8,"passwd":"123456"}' "mqtt"
+./filter 'mqtt.username contains "feng"' '{"message_type":1,"message_flag":0,"mqtt_payload_len":57,"protocol_len":4,"protocol":"MQTT","version":4,"c_flag":"0xc2","keepalive":60,"client_id_len":23,"client_id":"mosq-3iO2bSuBNshd5wDIVQ","username_len":10,"username":"liyongfeng","passwd_len":8,"passwd":"123456"}' "mqtt"
 
 
 
@@ -21,3 +22,4 @@ STAFF测试：
 ./filter 'staff.name == "Wangwu" || staff.name == "Zhongli"' '{"Country":"China", "City":"Beijing", "Infos":[{"Name":"Zhangsan", "Sex":1, "Age":25}, {"Name":"Lisi", "Sex":1, "Age":26}, {"Name":"Wangwu", "Sex":0, "Age":24}, {"Name":"Zhaoliu", "Sex":0, "Age":28}]}' 'staff'
 ./filter 'staff' '{"Country":"China", "City":"Beijing", "Infos":[{"Name":"Zhangsan", "Sex":1, "Age":25}, {"Name":"Lisi", "Sex":1, "Age":26}, {"Name":"Wangwu", "Sex":0, "Age":24}, {"Name":"Zhaoliu", "Sex":0, "Age":28}]}' 'staff'
 ./filter '!staff' '{"Country":"China", "City":"Beijing", "Infos":[{"Name":"Zhangsan", "Sex":1, "Age":25}, {"Name":"Lisi", "Sex":1, "Age":26}, {"Name":"Wangwu", "Sex":0, "Age":24}, {"Name":"Zhaoliu", "Sex":0, "Age":28}]}' 'staff'
+./filter 'staff.name contains "Li"' '{"Country":"China", "City":"Beijing", "Infos":[{"Name":"Zhangsan", "Sex":1, "Age":25}, {"Name":"Lisi", "Sex":1, "Age":26}, {"Name":"Wangwu", "Sex":0, "Age":24}, {"Name":"Zhaoliu", "Sex":0, "Age":28}]}' 'staff'

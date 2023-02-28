@@ -82,6 +82,7 @@ int num_operands(test_op_t op)
 		case TEST_OP_GE:
 		case TEST_OP_LT:
 		case TEST_OP_LE:
+		case TEST_OP_CONTAINS:
 			return 2;
 	}
 	g_assert_not_reached();
@@ -113,6 +114,8 @@ char* operandname(test_op_t op)
 			return "<";
 		case TEST_OP_LE:
 			return "<=";
+		case TEST_OP_CONTAINS:
+			return "contains";
 	}
 	g_assert_not_reached();
 	return NULL;
@@ -183,6 +186,9 @@ gboolean sttype_test_string(test_op_t op, char* val1, char* val2)
         case TEST_OP_NE:
             if(g_strcmp0(val1, val2) != 0) ret = TRUE;
             break;
+		case TEST_OP_CONTAINS:
+			if (NULL != strstr(val2, val1)) ret = TRUE;
+			break;
         case TEST_OP_GE:
         case TEST_OP_LT:
         case TEST_OP_LE:

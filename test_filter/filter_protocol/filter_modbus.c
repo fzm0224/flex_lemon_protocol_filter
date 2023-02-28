@@ -88,6 +88,7 @@ gboolean modbus_mode(stnode_t* node, istp_proto_modbus_filter_data* modbus_data)
             case TEST_OP_GE:
             case TEST_OP_LT:
             case TEST_OP_LE:
+            case TEST_OP_CONTAINS:
                 ret = cmp_modbus(test->val1, test->val2, test->op, modbus_data);
                 break;
             case TEST_OP_AND:

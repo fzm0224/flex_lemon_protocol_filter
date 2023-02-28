@@ -163,6 +163,7 @@ State 6:
           rel_op2 ::= * TEST_GE
           rel_op2 ::= * TEST_LT
           rel_op2 ::= * TEST_LE
+          rel_op2 ::= * TEST_CONTAINS
 
                        TEST_EQ shift-reduce 14     rel_op2 ::= TEST_EQ
                        TEST_NE shift-reduce 15     rel_op2 ::= TEST_NE
@@ -170,6 +171,7 @@ State 6:
                        TEST_LE shift-reduce 19     rel_op2 ::= TEST_LE
                        TEST_GT shift-reduce 16     rel_op2 ::= TEST_GT
                        TEST_GE shift-reduce 17     rel_op2 ::= TEST_GE
+                 TEST_CONTAINS shift-reduce 20     rel_op2 ::= TEST_CONTAINS
                        rel_op2 shift        5      
                      {default} reduce       12     relation_test ::= entity rel_op2 entity
 
@@ -183,6 +185,7 @@ State 7:
           rel_op2 ::= * TEST_GE
           rel_op2 ::= * TEST_LT
           rel_op2 ::= * TEST_LE
+          rel_op2 ::= * TEST_CONTAINS
 
                        TEST_EQ shift-reduce 14     rel_op2 ::= TEST_EQ
                        TEST_NE shift-reduce 15     rel_op2 ::= TEST_NE
@@ -190,6 +193,7 @@ State 7:
                        TEST_LE shift-reduce 19     rel_op2 ::= TEST_LE
                        TEST_GT shift-reduce 16     rel_op2 ::= TEST_GT
                        TEST_GE shift-reduce 17     rel_op2 ::= TEST_GE
+                 TEST_CONTAINS shift-reduce 20     rel_op2 ::= TEST_CONTAINS
                        rel_op2 shift        5      
                      {default} reduce       7      logical_test ::= entity
 
@@ -200,7 +204,7 @@ State 8:
 
                       TEST_AND shift        4      
                        TEST_OR shift        3      
-                        RPAREN shift-reduce 20     expr ::= LPAREN expr RPAREN
+                        RPAREN shift-reduce 21     expr ::= LPAREN expr RPAREN
 
 State 9:
       (0) sentence ::= expr *
@@ -232,26 +236,27 @@ The first-set of non-terminals is shown after the name.
     6: TEST_LE (precedence=3)
     7: TEST_GT (precedence=3)
     8: TEST_GE (precedence=3)
-    9: TEST_NOT (precedence=4)
-   10: FIELD
-   11: STRING
-   12: UNPARSED
-   13: INTEGER
-   14: LPAREN
-   15: RPAREN
-   16: sentence: <lambda> TEST_NOT FIELD STRING UNPARSED INTEGER LPAREN
-   17: expr: TEST_NOT FIELD STRING UNPARSED INTEGER LPAREN
-   18: entity: FIELD STRING UNPARSED INTEGER
-   19: relation_test: FIELD STRING UNPARSED INTEGER
-   20: logical_test: TEST_NOT FIELD STRING UNPARSED INTEGER LPAREN
-   21: rel_op2: TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE
-   22: range:
+    9: TEST_CONTAINS (precedence=3)
+   10: TEST_NOT (precedence=4)
+   11: FIELD
+   12: STRING
+   13: UNPARSED
+   14: INTEGER
+   15: LPAREN
+   16: RPAREN
+   17: sentence: <lambda> TEST_NOT FIELD STRING UNPARSED INTEGER LPAREN
+   18: expr: TEST_NOT FIELD STRING UNPARSED INTEGER LPAREN
+   19: entity: FIELD STRING UNPARSED INTEGER
+   20: relation_test: FIELD STRING UNPARSED INTEGER
+   21: logical_test: TEST_NOT FIELD STRING UNPARSED INTEGER LPAREN
+   22: rel_op2: TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE TEST_CONTAINS
+   23: range:
 ----------------------------------------------------
 Syntax-only Symbols:
 The following symbols never carry semantic content.
 
-$ TEST_AND TEST_OR TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE TEST_NOT
-LPAREN RPAREN sentence range
+$ TEST_AND TEST_OR TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE
+TEST_CONTAINS TEST_NOT LPAREN RPAREN sentence range
 ----------------------------------------------------
 Rules:
    0: sentence ::= expr.
@@ -274,4 +279,5 @@ Rules:
   17: rel_op2 ::= TEST_GE. [TEST_GE precedence=3]
   18: rel_op2 ::= TEST_LT. [TEST_LT precedence=3]
   19: rel_op2 ::= TEST_LE. [TEST_LE precedence=3]
-  20: expr ::= LPAREN expr RPAREN.
+  20: rel_op2 ::= TEST_CONTAINS. [TEST_CONTAINS precedence=3]
+  21: expr ::= LPAREN expr RPAREN.

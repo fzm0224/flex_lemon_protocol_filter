@@ -102,6 +102,7 @@ gboolean staff_mode(stnode_t* node, istp_proto_staff_filter_data* staff_data)
             case TEST_OP_GE:
             case TEST_OP_LT:
             case TEST_OP_LE:
+            case TEST_OP_CONTAINS:
                 ret = cmp_staff(test->val1, test->val2, test->op, staff_data);
                 break;
             case TEST_OP_AND:

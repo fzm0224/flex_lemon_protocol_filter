@@ -100,7 +100,8 @@ typedef enum {
 	TEST_OP_GT,
 	TEST_OP_GE,
 	TEST_OP_LT,
-	TEST_OP_LE
+	TEST_OP_LE,
+	TEST_OP_CONTAINS
 } test_op_t;
 
 typedef struct {

@@ -106,7 +106,7 @@ shifting 3 more symbols. */
 /* Associativity */
 %left TEST_AND.
 %left TEST_OR.
-%nonassoc TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE .
+%nonassoc TEST_EQ TEST_NE TEST_LT TEST_LE TEST_GT TEST_GE TEST_CONTAINS.
 %right TEST_NOT.
 
 /* Top-level targets */
@@ -185,6 +185,7 @@ rel_op2(O) ::= TEST_GT.  { O = TEST_OP_GT; }
 rel_op2(O) ::= TEST_GE.  { O = TEST_OP_GE; }
 rel_op2(O) ::= TEST_LT.  { O = TEST_OP_LT; }
 rel_op2(O) ::= TEST_LE.  { O = TEST_OP_LE; }
+rel_op2(O) ::= TEST_CONTAINS.  { O = TEST_OP_CONTAINS; }
 
 /* Any expression inside parens is simply that expression */
 expr(X) ::= LPAREN expr(Y) RPAREN.

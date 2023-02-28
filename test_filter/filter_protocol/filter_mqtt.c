@@ -124,6 +124,7 @@ gboolean mqtt_node(stnode_t* node, istp_proto_mqtt_filter_data* mqtt_data)
             case TEST_OP_GE:
             case TEST_OP_LT:
             case TEST_OP_LE:
+            case TEST_OP_CONTAINS:
                 ret = cmp_mqtt(test->val1, test->val2, test->op, mqtt_data);
                 break;
             case TEST_OP_AND:

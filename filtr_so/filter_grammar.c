@@ -55,13 +55,14 @@
 #define TOKEN_TEST_LE                         6
 #define TOKEN_TEST_GT                         7
 #define TOKEN_TEST_GE                         8
-#define TOKEN_TEST_NOT                        9
-#define TOKEN_FIELD                          10
-#define TOKEN_STRING                         11
-#define TOKEN_UNPARSED                       12
-#define TOKEN_INTEGER                        13
-#define TOKEN_LPAREN                         14
-#define TOKEN_RPAREN                         15
+#define TOKEN_TEST_CONTAINS                   9
+#define TOKEN_TEST_NOT                       10
+#define TOKEN_FIELD                          11
+#define TOKEN_STRING                         12
+#define TOKEN_UNPARSED                       13
+#define TOKEN_INTEGER                        14
+#define TOKEN_LPAREN                         15
+#define TOKEN_RPAREN                         16
 #endif
 /**************** End token definitions ***************************************/
 
@@ -121,13 +122,13 @@
 #endif
 /************* Begin control #defines *****************************************/
 #define YYCODETYPE unsigned char
-#define YYNOCODE 23
+#define YYNOCODE 24
 #define YYACTIONTYPE unsigned char
 #define DfilterTOKENTYPE stnode_t*
 typedef union {
   int yyinit;
   DfilterTOKENTYPE yy0;
-  test_op_t yy26;
+  test_op_t yy38;
 } YYMINORTYPE;
 #ifndef YYSTACKDEPTH
 #define YYSTACKDEPTH 100
@@ -143,17 +144,17 @@ typedef union {
 #define DfilterCTX_FETCH
 #define DfilterCTX_STORE
 #define YYNSTATE             11
-#define YYNRULE              21
-#define YYNRULE_WITH_ACTION  21
-#define YYNTOKEN             16
+#define YYNRULE              22
+#define YYNRULE_WITH_ACTION  22
+#define YYNTOKEN             17
 #define YY_MAX_SHIFT         10
-#define YY_MIN_SHIFTREDUCE   27
-#define YY_MAX_SHIFTREDUCE   47
-#define YY_ERROR_ACTION      48
-#define YY_ACCEPT_ACTION     49
-#define YY_NO_ACTION         50
-#define YY_MIN_REDUCE        51
-#define YY_MAX_REDUCE        71
+#define YY_MIN_SHIFTREDUCE   28
+#define YY_MAX_SHIFTREDUCE   49
+#define YY_ERROR_ACTION      50
+#define YY_ACCEPT_ACTION     51
+#define YY_NO_ACTION         52
+#define YY_MIN_REDUCE        53
+#define YY_MAX_REDUCE        74
 /************* End control #defines *******************************************/
 #define YY_NLOOKAHEAD ((int)(sizeof(yy_lookahead)/sizeof(yy_lookahead[0])))
 
@@ -220,42 +221,42 @@ typedef union {
 **  yy_default[]       Default action for each state.
 **
 *********** Begin parsing tables **********************************************/
-#define YY_ACTTAB_COUNT (63)
+#define YY_ACTTAB_COUNT (62)
 static const YYACTIONTYPE yy_action[] = {
- /*     0 */    52,   49,    9,    7,   53,   54,   51,    4,    3,    2,
- /*    10 */    35,   36,   37,   38,    1,    8,    7,   53,   54,    2,
- /*    20 */    35,   36,   37,   38,    1,   41,   42,   45,   46,   43,
- /*    30 */    44,   57,    7,   53,   54,   56,    7,   53,   54,    3,
- /*    40 */    10,    7,   53,   54,   35,   36,   37,   38,    4,    3,
- /*    50 */     6,   64,    5,   50,   50,   50,   50,   50,   50,   50,
- /*    60 */    50,   50,   47,
+ /*     0 */    54,   51,    9,    7,   55,   56,    8,    7,   55,   56,
+ /*    10 */     2,   36,   37,   38,   39,    1,   42,   43,   46,   47,
+ /*    20 */    44,   45,   48,    5,    2,   36,   37,   38,   39,    1,
+ /*    30 */    59,    7,   55,   56,   58,    7,   55,   56,   10,    7,
+ /*    40 */    55,   56,   36,   37,   38,   39,    4,    3,   53,    4,
+ /*    50 */     3,    6,   66,    3,   52,   52,   52,   52,   52,   52,
+ /*    60 */    52,   49,
 };
 static const YYCODETYPE yy_lookahead[] = {
- /*     0 */     0,   16,   17,   18,   19,   20,    0,    1,    2,    9,
- /*    10 */    10,   11,   12,   13,   14,   17,   18,   19,   20,    9,
- /*    20 */    10,   11,   12,   13,   14,    3,    4,    5,    6,    7,
- /*    30 */     8,   17,   18,   19,   20,   17,   18,   19,   20,    2,
- /*    40 */    17,   18,   19,   20,   10,   11,   12,   13,    1,    2,
- /*    50 */    18,   19,   21,   23,   23,   23,   23,   23,   23,   23,
- /*    60 */    23,   23,   15,   23,   23,   16,   16,   16,   16,   16,
- /*    70 */    16,   16,   16,   16,   16,   16,   16,   16,   16,
+ /*     0 */     0,   17,   18,   19,   20,   21,   18,   19,   20,   21,
+ /*    10 */    10,   11,   12,   13,   14,   15,    3,    4,    5,    6,
+ /*    20 */     7,    8,    9,   22,   10,   11,   12,   13,   14,   15,
+ /*    30 */    18,   19,   20,   21,   18,   19,   20,   21,   18,   19,
+ /*    40 */    20,   21,   11,   12,   13,   14,    1,    2,    0,    1,
+ /*    50 */     2,   19,   20,    2,   24,   24,   24,   24,   24,   24,
+ /*    60 */    24,   16,   24,   24,   24,   24,   24,   24,   24,   24,
+ /*    70 */    24,   17,   17,   17,   17,   17,   17,   17,   17,
 };
 #define YY_SHIFT_COUNT    (10)
 #define YY_SHIFT_MIN      (0)
-#define YY_SHIFT_MAX      (47)
+#define YY_SHIFT_MAX      (51)
 static const unsigned char yy_shift_ofst[] = {
- /*     0 */     0,   10,   10,   10,   10,   34,   22,   22,   47,    6,
- /*    10 */    37,
+ /*     0 */     0,   14,   14,   14,   14,   31,   13,   13,   45,   48,
+ /*    10 */    51,
 };
 #define YY_REDUCE_COUNT (7)
-#define YY_REDUCE_MIN   (-15)
+#define YY_REDUCE_MIN   (-16)
 #define YY_REDUCE_MAX   (32)
 static const signed char yy_reduce_ofst[] = {
- /*     0 */   -15,   -2,   14,   18,   23,   32,   31,   31,
+ /*     0 */   -16,  -12,   12,   16,   20,   32,    1,    1,
 };
 static const YYACTIONTYPE yy_default[] = {
- /*     0 */    48,   48,   48,   48,   48,   48,   63,   58,   48,   48,
- /*    10 */    55,
+ /*     0 */    50,   50,   50,   50,   50,   50,   65,   60,   50,   50,
+ /*    10 */    57,
 };
 /********** End of lemon-generated parsing tables *****************************/
 
@@ -372,20 +373,21 @@ static const char *const yyTokenName[] = {
   /*    6 */ "TEST_LE",
   /*    7 */ "TEST_GT",
   /*    8 */ "TEST_GE",
-  /*    9 */ "TEST_NOT",
-  /*   10 */ "FIELD",
-  /*   11 */ "STRING",
-  /*   12 */ "UNPARSED",
-  /*   13 */ "INTEGER",
-  /*   14 */ "LPAREN",
-  /*   15 */ "RPAREN",
-  /*   16 */ "sentence",
-  /*   17 */ "expr",
-  /*   18 */ "entity",
-  /*   19 */ "relation_test",
-  /*   20 */ "logical_test",
-  /*   21 */ "rel_op2",
-  /*   22 */ "range",
+  /*    9 */ "TEST_CONTAINS",
+  /*   10 */ "TEST_NOT",
+  /*   11 */ "FIELD",
+  /*   12 */ "STRING",
+  /*   13 */ "UNPARSED",
+  /*   14 */ "INTEGER",
+  /*   15 */ "LPAREN",
+  /*   16 */ "RPAREN",
+  /*   17 */ "sentence",
+  /*   18 */ "expr",
+  /*   19 */ "entity",
+  /*   20 */ "relation_test",
+  /*   21 */ "logical_test",
+  /*   22 */ "rel_op2",
+  /*   23 */ "range",
 };
 #endif /* defined(YYCOVERAGE) || !defined(NDEBUG) */
 
@@ -413,7 +415,8 @@ static const char *const yyRuleName[] = {
  /*  17 */ "rel_op2 ::= TEST_GE",
  /*  18 */ "rel_op2 ::= TEST_LT",
  /*  19 */ "rel_op2 ::= TEST_LE",
- /*  20 */ "expr ::= LPAREN expr RPAREN",
+ /*  20 */ "rel_op2 ::= TEST_CONTAINS",
+ /*  21 */ "expr ::= LPAREN expr RPAREN",
 };
 #endif /* NDEBUG */
 
@@ -548,31 +551,32 @@ static void yy_destructor(
     case 6: /* TEST_LE */
     case 7: /* TEST_GT */
     case 8: /* TEST_GE */
-    case 9: /* TEST_NOT */
-    case 10: /* FIELD */
-    case 11: /* STRING */
-    case 12: /* UNPARSED */
-    case 13: /* INTEGER */
-    case 14: /* LPAREN */
-    case 15: /* RPAREN */
+    case 9: /* TEST_CONTAINS */
+    case 10: /* TEST_NOT */
+    case 11: /* FIELD */
+    case 12: /* STRING */
+    case 13: /* UNPARSED */
+    case 14: /* INTEGER */
+    case 15: /* LPAREN */
+    case 16: /* RPAREN */
 {
 #line 27 "filter_grammar.y"
 
 	(void) dfw; /* Mark unused, similar to Q_UNUSED */
 	stnode_free((yypminor->yy0));
 
-#line 564 "filter_grammar.c"
+#line 568 "filter_grammar.c"
 }
       break;
-    case 17: /* expr */
-    case 18: /* entity */
-    case 19: /* relation_test */
-    case 20: /* logical_test */
-    case 22: /* range */
+    case 18: /* expr */
+    case 19: /* entity */
+    case 20: /* relation_test */
+    case 21: /* logical_test */
+    case 23: /* range */
 {
 #line 36 "filter_grammar.y"
 stnode_free((yypminor->yy0));
-#line 575 "filter_grammar.c"
+#line 579 "filter_grammar.c"
 }
       break;
 /********* End destructor definitions *****************************************/
@@ -861,27 +865,28 @@ static void yy_shift(
 /* For rule J, yyRuleInfoLhs[J] contains the symbol on the left-hand side
 ** of that rule */
 static const YYCODETYPE yyRuleInfoLhs[] = {
-    16,  /* (0) sentence ::= expr */
-    16,  /* (1) sentence ::= */
-    17,  /* (2) expr ::= relation_test */
-    17,  /* (3) expr ::= logical_test */
-    20,  /* (4) logical_test ::= expr TEST_AND expr */
-    20,  /* (5) logical_test ::= expr TEST_OR expr */
-    20,  /* (6) logical_test ::= TEST_NOT expr */
-    20,  /* (7) logical_test ::= entity */
-    18,  /* (8) entity ::= FIELD */
-    18,  /* (9) entity ::= STRING */
-    18,  /* (10) entity ::= UNPARSED */
-    18,  /* (11) entity ::= INTEGER */
-    19,  /* (12) relation_test ::= entity rel_op2 entity */
-    19,  /* (13) relation_test ::= entity rel_op2 relation_test */
-    21,  /* (14) rel_op2 ::= TEST_EQ */
-    21,  /* (15) rel_op2 ::= TEST_NE */
-    21,  /* (16) rel_op2 ::= TEST_GT */
-    21,  /* (17) rel_op2 ::= TEST_GE */
-    21,  /* (18) rel_op2 ::= TEST_LT */
-    21,  /* (19) rel_op2 ::= TEST_LE */
-    17,  /* (20) expr ::= LPAREN expr RPAREN */
+    17,  /* (0) sentence ::= expr */
+    17,  /* (1) sentence ::= */
+    18,  /* (2) expr ::= relation_test */
+    18,  /* (3) expr ::= logical_test */
+    21,  /* (4) logical_test ::= expr TEST_AND expr */
+    21,  /* (5) logical_test ::= expr TEST_OR expr */
+    21,  /* (6) logical_test ::= TEST_NOT expr */
+    21,  /* (7) logical_test ::= entity */
+    19,  /* (8) entity ::= FIELD */
+    19,  /* (9) entity ::= STRING */
+    19,  /* (10) entity ::= UNPARSED */
+    19,  /* (11) entity ::= INTEGER */
+    20,  /* (12) relation_test ::= entity rel_op2 entity */
+    20,  /* (13) relation_test ::= entity rel_op2 relation_test */
+    22,  /* (14) rel_op2 ::= TEST_EQ */
+    22,  /* (15) rel_op2 ::= TEST_NE */
+    22,  /* (16) rel_op2 ::= TEST_GT */
+    22,  /* (17) rel_op2 ::= TEST_GE */
+    22,  /* (18) rel_op2 ::= TEST_LT */
+    22,  /* (19) rel_op2 ::= TEST_LE */
+    22,  /* (20) rel_op2 ::= TEST_CONTAINS */
+    18,  /* (21) expr ::= LPAREN expr RPAREN */
 };
 
 /* For rule J, yyRuleInfoNRhs[J] contains the negative of the number
@@ -907,7 +912,8 @@ static const signed char yyRuleInfoNRhs[] = {
    -1,  /* (17) rel_op2 ::= TEST_GE */
    -1,  /* (18) rel_op2 ::= TEST_LT */
    -1,  /* (19) rel_op2 ::= TEST_LE */
-   -3,  /* (20) expr ::= LPAREN expr RPAREN */
+   -1,  /* (20) rel_op2 ::= TEST_CONTAINS */
+   -3,  /* (21) expr ::= LPAREN expr RPAREN */
 };
 
 static void yy_accept(yyParser*);  /* Forward Declaration */
@@ -1001,12 +1007,12 @@ static YYACTIONTYPE yy_reduce(
       case 0: /* sentence ::= expr */
 #line 113 "filter_grammar.y"
 { dfw->st_root = yymsp[0].minor.yy0; }
-#line 1004 "filter_grammar.c"
+#line 1010 "filter_grammar.c"
         break;
       case 1: /* sentence ::= */
 #line 114 "filter_grammar.y"
 { dfw->st_root = NULL; }
-#line 1009 "filter_grammar.c"
+#line 1015 "filter_grammar.c"
         break;
       case 2: /* expr ::= relation_test */
       case 3: /* expr ::= logical_test */ yytestcase(yyruleno==3);
@@ -1016,7 +1022,7 @@ static YYACTIONTYPE yy_reduce(
       case 11: /* entity ::= INTEGER */ yytestcase(yyruleno==11);
 #line 116 "filter_grammar.y"
 { yylhsminor.yy0 = yymsp[0].minor.yy0; }
-#line 1019 "filter_grammar.c"
+#line 1025 "filter_grammar.c"
   yymsp[0].minor.yy0 = yylhsminor.yy0;
         break;
       case 4: /* logical_test ::= expr TEST_AND expr */
@@ -1025,7 +1031,7 @@ static YYACTIONTYPE yy_reduce(
 	yylhsminor.yy0 = stnode_new(STTYPE_TEST, NULL);
 	sttype_test_set2(yylhsminor.yy0, TEST_OP_AND, yymsp[-2].minor.yy0, yymsp[0].minor.yy0);
 }
-#line 1028 "filter_grammar.c"
+#line 1034 "filter_grammar.c"
   yy_destructor(yypParser,1,&yymsp[-1].minor);
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
@@ -1035,18 +1041,18 @@ static YYACTIONTYPE yy_reduce(
 	yylhsminor.yy0 = stnode_new(STTYPE_TEST, NULL);
 	sttype_test_set2(yylhsminor.yy0, TEST_OP_OR, yymsp[-2].minor.yy0, yymsp[0].minor.yy0);
 }
-#line 1038 "filter_grammar.c"
+#line 1044 "filter_grammar.c"
   yy_destructor(yypParser,2,&yymsp[-1].minor);
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
       case 6: /* logical_test ::= TEST_NOT expr */
-{  yy_destructor(yypParser,9,&yymsp[-1].minor);
+{  yy_destructor(yypParser,10,&yymsp[-1].minor);
 #line 134 "filter_grammar.y"
 {
 	yymsp[-1].minor.yy0 = stnode_new(STTYPE_TEST, NULL);
 	sttype_test_set1(yymsp[-1].minor.yy0, TEST_OP_NOT, yymsp[0].minor.yy0);
 }
-#line 1049 "filter_grammar.c"
+#line 1055 "filter_grammar.c"
 }
         break;
       case 7: /* logical_test ::= entity */
@@ -1055,23 +1061,23 @@ static YYACTIONTYPE yy_reduce(
 	yylhsminor.yy0 = stnode_new(STTYPE_TEST, NULL);
 	sttype_test_set1(yylhsminor.yy0, TEST_OP_EXISTS, yymsp[0].minor.yy0);
 }
-#line 1058 "filter_grammar.c"
+#line 1064 "filter_grammar.c"
   yymsp[0].minor.yy0 = yylhsminor.yy0;
         break;
       case 12: /* relation_test ::= entity rel_op2 entity */
 #line 156 "filter_grammar.y"
 {
 	yylhsminor.yy0 = stnode_new(STTYPE_TEST, NULL);
-	sttype_test_set2(yylhsminor.yy0, yymsp[-1].minor.yy26, yymsp[-2].minor.yy0, yymsp[0].minor.yy0);
+	sttype_test_set2(yylhsminor.yy0, yymsp[-1].minor.yy38, yymsp[-2].minor.yy0, yymsp[0].minor.yy0);
 }
-#line 1067 "filter_grammar.c"
+#line 1073 "filter_grammar.c"
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
       case 13: /* relation_test ::= entity rel_op2 relation_test */
 #line 163 "filter_grammar.y"
 {
 	stnode_t *L, *F;
-	/* for now generate it like yymsp[-2].minor.yy0 yymsp[-1].minor.yy26 F  TEST_OP_AND  F P G, later it could be optimized
+	/* for now generate it like yymsp[-2].minor.yy0 yymsp[-1].minor.yy38 F  TEST_OP_AND  F P G, later it could be optimized
 	   or semantically checked (to make a <= b >= c or a == b != c invalid)?
 	 */
 
@@ -1082,65 +1088,72 @@ static YYACTIONTYPE yy_reduce(
 	} while (stnode_type_id(F) == STTYPE_TEST);
 
 	L = stnode_new(STTYPE_TEST, NULL);
-	sttype_test_set2(L, yymsp[-1].minor.yy26, yymsp[-2].minor.yy0, stnode_dup(F));
+	sttype_test_set2(L, yymsp[-1].minor.yy38, yymsp[-2].minor.yy0, stnode_dup(F));
 
 	yylhsminor.yy0 = stnode_new(STTYPE_TEST, NULL);
 	sttype_test_set2(yylhsminor.yy0, TEST_OP_AND, L, yymsp[0].minor.yy0);
 }
-#line 1090 "filter_grammar.c"
+#line 1096 "filter_grammar.c"
   yymsp[-2].minor.yy0 = yylhsminor.yy0;
         break;
       case 14: /* rel_op2 ::= TEST_EQ */
 {  yy_destructor(yypParser,3,&yymsp[0].minor);
 #line 182 "filter_grammar.y"
-{ yymsp[0].minor.yy26 = TEST_OP_EQ; }
-#line 1097 "filter_grammar.c"
+{ yymsp[0].minor.yy38 = TEST_OP_EQ; }
+#line 1103 "filter_grammar.c"
 }
         break;
       case 15: /* rel_op2 ::= TEST_NE */
 {  yy_destructor(yypParser,4,&yymsp[0].minor);
 #line 183 "filter_grammar.y"
-{ yymsp[0].minor.yy26 = TEST_OP_NE; }
-#line 1104 "filter_grammar.c"
+{ yymsp[0].minor.yy38 = TEST_OP_NE; }
+#line 1110 "filter_grammar.c"
 }
         break;
       case 16: /* rel_op2 ::= TEST_GT */
 {  yy_destructor(yypParser,7,&yymsp[0].minor);
 #line 184 "filter_grammar.y"
-{ yymsp[0].minor.yy26 = TEST_OP_GT; }
-#line 1111 "filter_grammar.c"
+{ yymsp[0].minor.yy38 = TEST_OP_GT; }
+#line 1117 "filter_grammar.c"
 }
         break;
       case 17: /* rel_op2 ::= TEST_GE */
 {  yy_destructor(yypParser,8,&yymsp[0].minor);
 #line 185 "filter_grammar.y"
-{ yymsp[0].minor.yy26 = TEST_OP_GE; }
-#line 1118 "filter_grammar.c"
+{ yymsp[0].minor.yy38 = TEST_OP_GE; }
+#line 1124 "filter_grammar.c"
 }
         break;
       case 18: /* rel_op2 ::= TEST_LT */
 {  yy_destructor(yypParser,5,&yymsp[0].minor);
 #line 186 "filter_grammar.y"
-{ yymsp[0].minor.yy26 = TEST_OP_LT; }
-#line 1125 "filter_grammar.c"
+{ yymsp[0].minor.yy38 = TEST_OP_LT; }
+#line 1131 "filter_grammar.c"
 }
         break;
       case 19: /* rel_op2 ::= TEST_LE */
 {  yy_destructor(yypParser,6,&yymsp[0].minor);
 #line 187 "filter_grammar.y"
-{ yymsp[0].minor.yy26 = TEST_OP_LE; }
-#line 1132 "filter_grammar.c"
+{ yymsp[0].minor.yy38 = TEST_OP_LE; }
+#line 1138 "filter_grammar.c"
 }
         break;
-      case 20: /* expr ::= LPAREN expr RPAREN */
-{  yy_destructor(yypParser,14,&yymsp[-2].minor);
-#line 191 "filter_grammar.y"
+      case 20: /* rel_op2 ::= TEST_CONTAINS */
+{  yy_destructor(yypParser,9,&yymsp[0].minor);
+#line 188 "filter_grammar.y"
+{ yymsp[0].minor.yy38 = TEST_OP_CONTAINS; }
+#line 1145 "filter_grammar.c"
+}
+        break;
+      case 21: /* expr ::= LPAREN expr RPAREN */
+{  yy_destructor(yypParser,15,&yymsp[-2].minor);
+#line 192 "filter_grammar.y"
 {
 	yymsp[-2].minor.yy0 = yymsp[-1].minor.yy0;
 	stnode_set_bracket(yymsp[-2].minor.yy0, TRUE);
 }
-#line 1142 "filter_grammar.c"
-  yy_destructor(yypParser,15,&yymsp[0].minor);
+#line 1155 "filter_grammar.c"
+  yy_destructor(yypParser,16,&yymsp[0].minor);
 }
         break;
       default:
@@ -1188,7 +1201,7 @@ static void yy_parse_failed(
 #line 100 "filter_grammar.y"
 
 	dfw->syntax_error = TRUE;
-#line 1191 "filter_grammar.c"
+#line 1204 "filter_grammar.c"
 /************ End %parse_failure code *****************************************/
   DfilterARG_STORE /* Suppress warning about unused %extra_argument variable */
   DfilterCTX_STORE
@@ -1247,7 +1260,7 @@ static void yy_syntax_error(
 			break;
 	}
 	dfw->syntax_error = TRUE;
-#line 1250 "filter_grammar.c"
+#line 1263 "filter_grammar.c"
 /************ End %syntax_error code ******************************************/
   DfilterARG_STORE /* Suppress warning about unused %extra_argument variable */
   DfilterCTX_STORE

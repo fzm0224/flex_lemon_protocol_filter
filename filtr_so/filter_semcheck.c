@@ -9,6 +9,8 @@ test_op_t flip_op(test_op_t op)
             return TEST_OP_EQ;
         case TEST_OP_NE:
             return TEST_OP_NE;
+        case TEST_OP_CONTAINS:
+            return TEST_OP_CONTAINS;
         case TEST_OP_GT:
             return TEST_OP_LT;
         case TEST_OP_GE:
@@ -91,6 +93,7 @@ gboolean check_test(dfwork_t *dfw, stnode_t *st_node)
         case TEST_OP_GE:
         case TEST_OP_LT:
         case TEST_OP_LE:
+        case TEST_OP_CONTAINS:
             ret = check_relation(dfw, st_op, st_node, st_arg1, st_arg2);
             break;
         case TEST_OP_NOT:
