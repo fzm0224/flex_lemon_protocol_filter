@@ -9,7 +9,7 @@ all:
 	sed -i 's/\_U\_//' ./filter_grammar.c
 # 使用flex编译规则文件filter_scanner.l生成filter_scanner.h和filter_scanner.c
 	flex --outfile=filter_scanner.c --header-file=filter_scanner.h filter_scanner.l
-	$(CC) -shared -fPIC *.c -I./ -o libfilter.so
+	$(CC) -shared -fPIC *.c -I./ -Wl,-rpath=. -o libfilter.so
 
 install:
 	cp ./libfilter.so ../test_filter/

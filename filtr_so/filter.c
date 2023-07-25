@@ -14,6 +14,8 @@ void* DfilterAlloc(void* (*)(size_t));
 void* Dfilter(void*, int, stnode_t*, dfwork_t*);
 void* DfilterFree(void*, void(*)(void*));
 
+filter_field_t *g_filter_fields;
+
 stnode_t *df_lval;
 
 void dfilter_fail(dfwork_t *dfw, const char *format, ...)

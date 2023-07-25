@@ -21,7 +21,7 @@ typedef struct _filter_field_t {
 	proto_value_t type;
 } filter_field_t;
 
-filter_field_t *g_filter_fields;
+extern filter_field_t *g_filter_fields;
 
 
 typedef signed char     gint8;
